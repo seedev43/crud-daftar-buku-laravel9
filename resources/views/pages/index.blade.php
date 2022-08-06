@@ -52,8 +52,9 @@
                                         <img src="{{ asset('assets/images/users/avv.jpg') }}" alt=""
                                             class="img-thumbnail rounded-circle">
                                     </div>
-                                    <h5 class="font-size-15 text-truncate">Ahmad Dzaky</h5>
-                                    <p class="text-muted mb-0 text-truncate">Developer</p>
+                                    <h5 class="font-size-15 text-truncate">{{ auth()->user()->name }}</h5>
+                                    <p class="text-muted mb-0 text-truncate">{{ Str::ucfirst(auth()->user()->level) }}
+                                    </p>
                                 </div>
 
                                 <div class="col-sm-8">

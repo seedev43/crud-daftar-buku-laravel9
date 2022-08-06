@@ -201,7 +201,7 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle header-profile-user"
                                 src="{{ asset('assets/images/users/avv.jpg') }}" alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1" key="t-henry">Ahmad Dzaky</span>
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ auth()->user()->name }}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -211,9 +211,12 @@
                                     class="bx bx-wrench font-size-16 align-middle me-1"></i> <span
                                     key="t-settings">Settings</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="#"><i
-                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
-                                    key="t-logout">Logout</span></a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="dropdown-item text-danger"><i
+                                        class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span
+                                        key="t-logout">Logout</span></button>
+                            </form>
                         </div>
                     </div>
 

@@ -11,7 +11,7 @@ class Book extends Model
 
     protected $table = 'list_books';
 
-    protected $guarded = ['id'];
+    protected $fillable = ['author_id', 'category_id', 'publisher_id', 'sampul', 'judul', 'slug', 'deskripsi', 'tahun_terbit'];
 
     public function author()
     {
