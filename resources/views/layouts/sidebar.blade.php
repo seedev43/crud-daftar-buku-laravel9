@@ -10,7 +10,7 @@
                 <li class="menu-title" key="t-menu">Menu</li>
 
                 <li>
-                    <a href="{{ route('index') }}" class="waves-effect">
+                    <a href="{{ route('home') }}" class="waves-effect">
                         <i class="fal fa-home"></i>
                         <span key="t-dashboard">Dashboard</span>
                     </a>

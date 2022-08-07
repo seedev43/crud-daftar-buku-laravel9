@@ -28,12 +28,14 @@ Route::prefix('action')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::middleware(['checklogin:admin'])->group(function () {
+        Route::get('/book/add', [BookController::class, 'create'])->name('add-book');
+        Route::resource('book', BookController::class)->names('book')->except(['show']);
+    });
+
     Route::get('/home', [BookController::class, 'index'])->name('home');
     Route::get('/detail-book/{slug}', [BookController::class, 'show'])->name('detail-book');
 
-    Route::get('/book/add', [BookController::class, 'create'])->name('add-book');
-
-    Route::resource('book', BookController::class)->names('book');
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
